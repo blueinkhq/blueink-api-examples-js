@@ -46,7 +46,7 @@
 
         <section class="bg-light">
             <div class="container py-5">
-                <h1 class="display-4">Embedded Signing with Document Upload</h1>
+                <h1 class="display-4">Embedded Signing with Template</h1>
             </div>
         </section>
 
@@ -86,22 +86,9 @@
                                 any other purpose.</p>
 
                             <form
-                                action="/examples/upload"
-                                enctype="multipart/form-data"
+                                action="/examples/template"
                                 method="post"
                             >
-                                <div class="mb-3">
-                                    <label class="form-label">Upload your
-                                        document</label>
-                                    <input
-                                        required
-                                        type="file"
-                                        accept="application/pdf"
-                                        class="form-control"
-                                        name="file"
-                                    />
-                                </div>
-
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
                                     <input

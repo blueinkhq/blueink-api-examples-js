@@ -46,7 +46,7 @@
 
         <section class="bg-light">
             <div class="container py-5">
-                <h1 class="display-4">Embedded Signing with Document Upload</h1>
+                <h1 class="display-4">Embedded Signing with File URL</h1>
             </div>
         </section>
 
@@ -86,19 +86,15 @@
                                 any other purpose.</p>
 
                             <form
-                                action="/examples/upload"
-                                enctype="multipart/form-data"
+                                action="/examples/url"
                                 method="post"
                             >
                                 <div class="mb-3">
-                                    <label class="form-label">Upload your
-                                        document</label>
+                                    <label class="form-label">File URL</label>
                                     <input
-                                        required
-                                        type="file"
-                                        accept="application/pdf"
+                                        type="url"
                                         class="form-control"
-                                        name="file"
+                                        name="file_url"
                                     />
                                 </div>
 
