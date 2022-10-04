@@ -6,7 +6,7 @@ const app = express();
 
 const examples = require('../src/routes/example.route')
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 app.set('view engine', 'hbs');
 
