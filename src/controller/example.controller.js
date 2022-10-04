@@ -3,10 +3,7 @@ const { Client, BundleHelper } = require("blueink-js");
 
 const examples = {};
 
-const LOCAL_URL = process.env.LOCAL_URL;
-const LOCAL_KEY = process.env.LOCAL_KEY;
-
-const client = new Client(LOCAL_KEY, LOCAL_URL);
+const client = new Client();
 
 examples.fileUpload = async (req, res) => {
     if (req.method === "POST") {
