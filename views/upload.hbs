@@ -1,0 +1,160 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <!-- CSS only -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+            crossorigin="anonymous"
+        />
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img
+                        src="/blueink-logo.png"
+                        alt="BlueInk Logo"
+                        height="24"
+                    />
+                </a>
+                <h4>API Example</h4>
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item d-inline-block me-4">
+                        <a class="nav-link" href="">BlueInk Website</a>
+                    </li>
+                    <li class="nav-item d-inline-block">
+                        <a class="nav-link" href="">API Docs</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="bg-light">
+            <div class="container py-5">
+                <h1 class="display-4">Embedded Signing with Document Upload</h1>
+            </div>
+        </section>
+
+        <section>
+            <div class="container py-4">
+                <h3>Overview</h3>
+                <p>This page demonstrates creating an embedded signing session
+                    using data submitted from the user.</p>
+                <ol>
+                    <li>The user fills in the form below. On clicking Submit,
+                        the form data is POST'ed (via an AJAX request) to the
+                        server.</li>
+                    <li>The server receives the POST request, and uses the
+                        submitted data to create a new Bundle for embedded
+                        signing, using the BlueInk API JS Client Library.</li>
+                    <li>The server returns the embedded signing URL.</li>
+                    <li>The BlueInk Example uses the embedded signing URL to create a
+                        new embedded signing session.</li>
+                </ol>
+                <p>You can find a fuller breakdown, with code samples, below.</p>
+            </div>
+        </section>
+
+        <hr class="container my-4" />
+
+        <section class="container py-4">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card py-4">
+                        <div class="card-body">
+                            <h5>Signing Data</h5>
+                            <p class="my-4">Enter data that will be used to
+                                pre-fill the document for this demo. If you
+                                provide an email, the completed document will be
+                                emailed to you. Data you enter is not used for
+                                any other purpose.</p>
+
+                            <form
+                                action="/examples/upload"
+                                enctype="multipart/form-data"
+                                method="post"
+                            >
+                                <div class="mb-3">
+                                    <label class="form-label">Upload your
+                                        document</label>
+                                    <input
+                                        required
+                                        type="file"
+                                        accept="application/pdf"
+                                        class="form-control"
+                                        name="file"
+                                    />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Name</label>
+                                    <input
+                                        required
+                                        type="text"
+                                        class="form-control"
+                                        name="name"
+                                    />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input
+                                        required
+                                        type="email"
+                                        class="form-control"
+                                        name="email"
+                                    />
+                                </div>
+
+                                <hr class="my-4" />
+
+                                <p>After clicking submit, the embedded signing
+                                    iFrame will show to the right.</p>
+
+                                <button
+                                    class="btn btn-primary"
+                                    type="submit"
+                                >Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 bg-light shadow rounded">
+                    {{#if url}}
+                        <iframe
+                            src="{{url}}"
+                            width="100%"
+                            height="100%"
+                            title="Signing"
+                        ></iframe>
+                    {{else}}
+                        <h5 class="mt-5 pt-5 display-6 text-center">Embedded
+                            signing iFrame will be placed here</h5>
+                    {{/if}}
+                </div>
+            </div>
+        </section>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

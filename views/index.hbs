@@ -1,0 +1,143 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BlueInk JS Example</title>
+
+        <!-- CSS only -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+            crossorigin="anonymous"
+        />
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img
+                        src="/blueink-logo.png"
+                        alt="BlueInk Logo"
+                        height="24"
+                    />
+                </a>
+                <h4>API Example</h4>
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item d-inline-block me-4">
+                        <a class="nav-link" href="">BlueInk Website</a>
+                    </li>
+                    <li class="nav-item d-inline-block">
+                        <a class="nav-link" href="">API Docs</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="bg-light">
+            <div class="container py-5">
+                <h1 class="display-4">Embedded Signing with the BlueInk API</h1>
+                <p>This site demonstrates a few ways to embed signing into a
+                    website or project using the BlueInk API</p>
+
+                <hr />
+
+                <div class="row">
+                    <div class="col-8">
+                        <p>This demo site is built in PHP and uses the official
+                            BlueInk API JS Library to build embedded signing
+                            workflows.</p>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-primary"><i
+                                class="fab fa-github me-2"
+                            ></i>View Demo Source</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container py-6">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h4>Example 1: Uploaded Doc</h4>
+                                <p>Create an embedded signing using an uploaded
+                                    document and data entered in a form.</p>
+
+                                <a
+                                    href="/examples/upload"
+                                    class="btn btn-secondary"
+                                >View Example</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h4>Example 2: File URL</h4>
+                                <p>Create an embedded signing using file URL and
+                                    data entered in a form.</p>
+
+                                <a
+                                    href="/examples/url"
+                                    class="btn btn-secondary"
+                                >View Example</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h4>Example 3: Base64</h4>
+                                <p>Create an embedded signing using Base64 and
+                                    data entered in a form.</p>
+
+                                <a
+                                    href="/examples/b64"
+                                    class="btn btn-secondary"
+                                >View Example</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h4>Example 4: Template</h4>
+                                <p>Create an embedded signing using a Template
+                                    document and data entered in a form.</p>
+
+                                <a
+                                    href="/examples/template"
+                                    class="btn btn-secondary"
+                                >View Example</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
