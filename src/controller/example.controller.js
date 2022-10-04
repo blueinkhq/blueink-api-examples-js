@@ -88,18 +88,18 @@ examples.template = async (req, res) => {
 
             bh.assignRole(signer, templateKey, "signer-1");
 
-            bh.initializeField(templateKey, "inp001-SzYYb", name);
+            bh.initializeField(templateKey, "inp002-vTTIY", name);
 
             if (company) {
-                bh.initializeField(templateKey, "inp002-_4AG5", company);
+                bh.initializeField(templateKey, "inp003-QnEwD", company);
             }
 
             if (title) {
-                bh.initializeField(templateKey, "inp003-eMYsa", title);
+                bh.initializeField(templateKey, "inp004-XPcpS", title);
             }
 
             if (superhero) {
-                bh.initializeField(templateKey, "inp004-q2G4Y", superhero);
+                bh.initializeField(templateKey, "inp005-HFLXi", superhero);
             }
 
             const newBundle = await client.bundles.create(bh.asData());
