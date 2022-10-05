@@ -102,7 +102,6 @@ examples.template = async (req, res) => {
             }
 
             const newBundle = await client.bundles.create(bh.asData());
-            console.log('========== Post Data: ===========\n', bh.asData())
             const packetId = newBundle.data.packets[0].id;
 
             const embedUrl = await client.packets.embedUrl(packetId);
