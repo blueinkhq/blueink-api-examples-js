@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { Client, BundleHelper } = require("blueink-js");
+const handleError = require('../util/util');
 
 const examples = {};
 
@@ -49,7 +50,8 @@ examples.fileUpload = async (req, res) => {
 
             res.render("upload", { url });
         } catch (error) {
-            res.render("upload");
+            handleError(error);
+            res.status(400).render("upload");
         }
     }
 
@@ -107,7 +109,8 @@ examples.template = async (req, res) => {
 
             res.render("template", { url });
         } catch (error) {
-            res.render("template");
+            handleError(error);
+            res.status(400).render("template");
         }
     }
 
@@ -156,7 +159,8 @@ examples.url = async (req, res) => {
 
             res.render("url", { url });
         } catch (error) {
-            res.render("url");
+            handleError(error);
+            res.status(400).render("url");
         }
     }
 
@@ -263,7 +267,8 @@ examples.b64 = async (req, res) => {
 
             res.render("b64", { url });
         } catch (error) {
-            res.render("b64");
+            handleError(error);
+            res.status(400).render("b64");
         }
     }
 
