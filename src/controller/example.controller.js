@@ -1,5 +1,6 @@
 require("dotenv").config();
-const { Client, BundleHelper } = require("blueink-js");
+const { Client, BundleHelper } = require("blueink-client-js");
+
 const handleError = require('../util/util');
 
 const examples = {};
@@ -13,7 +14,7 @@ examples.fileUpload = async (req, res) => {
             const { name, email } = req.body;
 
             const bh = new BundleHelper({
-                label: "New Bundle Label not convert from buffer",
+                label: "New Bundle from Uploaded File",
                 requester_email: "example@email.com",
                 requester_name: "Mr. Example",
                 email_subject: "New Bundle From JS Library",
@@ -68,7 +69,7 @@ examples.template = async (req, res) => {
 
         try {
             const bh = new BundleHelper({
-                label: "New Bundle Label not convert from buffer",
+                label: "New Bundle from Document Template",
                 requester_email: "example@email.com",
                 requester_name: "Mr. Example",
                 email_subject: "New Bundle From JS Library",
@@ -125,7 +126,7 @@ examples.url = async (req, res) => {
             const { file_url } = req.body;
 
             const bh = new BundleHelper({
-                label: "New Bundle Label not convert from buffer",
+                label: "New Bundle from File URL",
                 requester_email: "example@email.com",
                 requester_name: "Mr. Example",
                 email_subject: "New Bundle From JS Library",
@@ -173,17 +174,17 @@ examples.b64 = async (req, res) => {
     if (req.method === "POST") {
         try {
             const { file_b64, name, email, company, title, superhero } =
-                req.body;
+            req.body;
 
             const bh = new BundleHelper({
-                label: "New Bundle Label not convert from buffer",
+                label: "New Bundle from Base 64",
                 requester_email: "example@email.com",
                 requester_name: "Mr. Example",
                 email_subject: "New Bundle From JS Library",
                 email_message: "Please sign example document from Example JS ",
             });
 
-            const docKey = bh.addDocumentByB64(file_b64);
+            const docKey = bh.addDocumentByB64("sample-doc", file_b64);
 
             const signer = bh.addSigner({
                 name,
