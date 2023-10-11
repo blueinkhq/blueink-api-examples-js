@@ -278,7 +278,7 @@ examples.b64 = async (req, res) => {
             const embedUrl = await client.packets.embedUrl(packetId);
             const { url } = embedUrl.data;
 
-            res.render("b64", { url,  blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY  });
+            res.render("b64", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY, url });
         } catch (error) {
             handleError(error);
             res.status(400).render("b64", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY });
