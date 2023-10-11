@@ -1,12 +1,18 @@
 require("dotenv").config();
-const { Client, BundleHelper } = require("blueink-client-js");
+const { Client, BundleHelper } = require("@blueink360/blueink-client-js");
 
 const handleError = require('../util/util');
 
+const BLUEINK_PUBLIC_API_KEY = process.env.BLUEINK_PUBLIC_API_KEY
+
 const examples = {};
 
+// Initialize Blueink Client
+// The library will look for BLUEINK_PRIVATE_API_KEY in .env file in the local directory.
 const client = new Client();
 
+// Function for handling file upload and creating a new bundle with the uploaded file
+// Renders the "upload" template with the signing URL for the uploaded document
 examples.fileUpload = async (req, res) => {
     if (req.method === "POST") {
         try {
@@ -49,18 +55,20 @@ examples.fileUpload = async (req, res) => {
             const embedUrl = await client.packets.embedUrl(packetId);
             const { url } = embedUrl.data;
 
-            res.render("upload", { url });
+            res.render("upload", {  blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY, url });
         } catch (error) {
             handleError(error);
-            res.status(400).render("upload");
+            res.status(400).render("upload", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY });
         }
     }
 
     if (req.method === "GET") {
-        res.render("upload");
+        res.render("upload", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY });
     }
 };
 
+// Function for handling template-based Bundle creation
+// Renders the "template" template with the signing URL for the template-based document
 examples.template = async (req, res) => {
     if (req.method === "POST") {
         const TEMPLATE_ID = process.env.TEMPLATE_ID;
@@ -108,18 +116,20 @@ examples.template = async (req, res) => {
             const embedUrl = await client.packets.embedUrl(packetId);
             const { url } = embedUrl.data;
 
-            res.render("template", { url });
+            res.render("template", {  blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY, url });
         } catch (error) {
             handleError(error);
-            res.status(400).render("template");
+            res.status(400).render("template", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY });
         }
     }
 
     if (req.method === "GET") {
-        res.render("template");
+        res.render("template", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY });
     }
 };
 
+// Function for handling Bundle creation from a URL
+// Renders the "url" template with the signing URL for the document from the provided URL
 examples.url = async (req, res) => {
     if (req.method === "POST") {
         try {
@@ -158,18 +168,20 @@ examples.url = async (req, res) => {
             const embedUrl = await client.packets.embedUrl(packetId);
             const { url } = embedUrl.data;
 
-            res.render("url", { url });
+            res.render("url", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY, url });
         } catch (error) {
             handleError(error);
-            res.status(400).render("url");
+            res.status(400).render("url", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY });
         }
     }
 
     if (req.method === "GET") {
-        res.render("url");
+        res.render("url", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY });
     }
 };
 
+// Function for handling document creation from base64 encoded data
+// Renders the "b64" template with the signing URL for the base64 encoded document
 examples.b64 = async (req, res) => {
     if (req.method === "POST") {
         try {
@@ -266,16 +278,17 @@ examples.b64 = async (req, res) => {
             const embedUrl = await client.packets.embedUrl(packetId);
             const { url } = embedUrl.data;
 
-            res.render("b64", { url });
+            res.render("b64", { url,  blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY  });
         } catch (error) {
             handleError(error);
-            res.status(400).render("b64");
+            res.status(400).render("b64", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY });
         }
     }
 
     if (req.method === "GET") {
-        res.render("b64");
+        res.render("b64", { blueinkPublicApiKey: BLUEINK_PUBLIC_API_KEY });
     }
 };
 
+// Exporting the examples object containing all the functions for external use
 module.exports = examples;
