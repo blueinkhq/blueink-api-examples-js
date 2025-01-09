@@ -25,6 +25,7 @@ examples.fileUpload = async (req, res) => {
                 requester_name: "Mr. Example",
                 email_subject: "New Bundle From JS Library",
                 email_message: "Please sign example document from Example JS ",
+                is_test: true
             });
 
             const docKey = bh.addDocumentByFile(file);
