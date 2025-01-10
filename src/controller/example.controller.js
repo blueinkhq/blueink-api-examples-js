@@ -83,6 +83,7 @@ examples.template = async (req, res) => {
                 requester_name: "Mr. Example",
                 email_subject: "New Bundle From JS Library",
                 email_message: "Please sign example document from Example JS ",
+                is_test: true
             });
 
             const templateKey = bh.addDocumentTemplate({
@@ -142,6 +143,7 @@ examples.url = async (req, res) => {
                 requester_name: "Mr. Example",
                 email_subject: "New Bundle From JS Library",
                 email_message: "Please sign example document from Example JS ",
+                is_test: true
             });
 
             const docKey = bh.addDocumentByUrl(file_url);
@@ -195,6 +197,7 @@ examples.b64 = async (req, res) => {
                 requester_name: "Mr. Example",
                 email_subject: "New Bundle From JS Library",
                 email_message: "Please sign example document from Example JS ",
+                is_test: true
             });
 
             const docKey = bh.addDocumentByB64("sample-doc", file_b64);
